@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday My Love ❤️</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff4b91,#ff85a2,#ffc2d1);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+/* Floating Hearts */
+.heart{
+    position:absolute;
+    bottom:-20px;
+    color:rgba(255,255,255,0.7);
+    animation:float 8s linear infinite;
+    font-size:20px;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* Main Card */
+.card{
+    width:90%;
+    max-width:400px;
+    padding:30px 20px;
+    background:rgba(255,255,255,0.15);
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 30px rgba(0,0,0,0.2);
+    z-index:2;
+}
+
+h1{
+    font-size:2.3rem;
+    margin-bottom:15px;
+}
+
+h2{
+    font-size:1.4rem;
+    margin-bottom:15px;
+    color:#fff4f7;
+}
+
+p{
+    font-size:1rem;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+/* Button */
+button{
+    padding:12px 24px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4b91;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Mobile */
+@media(max-width:480px){
+    h1{
+        font-size:1.9rem;
+    }
+
+    h2{
+        font-size:1.2rem;
+    }
+
+    p{
+        font-size:0.95rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Birthday Card -->
+<div class="card">
+    <h1>🎂 Happy Birthday ❤️</h1>
+    <h2>My Love</h2>
+
+    <p>
+        You are the most beautiful part of my life.
+        Every moment with you feels magical.
+        May your birthday be filled with love,
+        happiness, smiles, and endless joy.
+    </p>
+
+    <button onclick="showLove()">Click For Surprise 💖</button>
+</div>
+
+<!-- Confetti Library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+
+// Confetti Animation
+function launchConfetti(){
+    confetti({
+        particleCount:200,
+        spread:120,
+        origin:{ y:0.6 }
+    });
+}
+
+// Surprise Button
+function showLove(){
+    launchConfetti();
+
+    alert("I Love You Forever ❤️");
+}
+
+// Auto Confetti On Load
+setTimeout(() => {
+    launchConfetti();
+}, 1000);
+
+// Floating Hearts
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 5 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>
